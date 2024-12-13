@@ -1,0 +1,5 @@
+if [ $# -eq 0 ]; then
+    docker run --rm -it -v "$(dirname $(realpath $0)):$(dirname $(realpath $0))" --workdir=$(dirname $(realpath $0)) rz_ubuntu-20.04
+else
+    docker run --rm -it -v "$(dirname $(realpath $0)):$(dirname $(realpath $0))" -e SETUP="$1" -e HELP="$2" --workdir=$(dirname $(realpath $0)) rz_ubuntu-20.04
+fi
